@@ -1,3 +1,8 @@
 export function Header() {
-  return <h1>Header</h1>;
+  return (
+    <header>
+      <img src="../image/chef-claude-icon.png" alt="chef icon" />
+      <span>Chef Claude</span>
+    </header>
+  );
 }
