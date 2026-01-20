@@ -34,7 +34,7 @@ form {
   display: flex;
   justify-content: center;
   gap: 0.75rem;
-  margin: 4rem 0 4.68rem;
+  margin: 4rem 0 2rem;
 
   input {
     font-family: "Inter", sans-serif;
@@ -67,6 +67,6 @@ form {
 }
 
 ul {
-  width: 400px;
+  width: 500px;
   margin: 0 auto;
 }
