@@ -10,7 +10,8 @@ export function Main() {
     "salt",
     "water",
   ]);
-  const [recipeShown, setReceiptShow] = React.useState(false);
+
+  const [recipe, setRecipe] = React.useState("");
 
   function addIngredient(formData) {
     const newIngredient = formData.get("ingredient");
@@ -19,8 +20,15 @@ export function Main() {
     });
   }
 
-  function toggleRecipeShown() {
-    setReceiptShow((preValue) => (preValue ? false : true));
+  async function getRecipe() {
+    try {
+      const suggestedRecipe = await getRecipeFromChefClaude(ingredients);
+      setRecipe(() => {
+        return suggestedRecipe;
+      });
+    } catch (err) {
+      throw new Error(err);
+    }
   }
 
   return (
@@ -36,13 +44,10 @@ export function Main() {
       </form>
 
       {ingredients.length > 0 && (
-        <IngredientsList
-          ingredients={ingredients}
-          toggleRecipeShown={toggleRecipeShown}
-        />
+        <IngredientsList ingredients={ingredients} getRecipe={getRecipe} />
       )}
 
-      {recipeShown && <ClaudeRecipe />}
+      {recipe && <ClaudeRecipe recipe={recipe} />}
     </main>
   );
 }
