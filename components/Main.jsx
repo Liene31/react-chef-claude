@@ -4,12 +4,7 @@ import { IngredientsList } from "./IngredientsList";
 import { getRecipeFromChefClaude } from "../ai.js";
 
 export function Main() {
-  const [ingredients, setIngredients] = React.useState([
-    "egg",
-    "milk",
-    "salt",
-    "water",
-  ]);
+  const [ingredients, setIngredients] = React.useState([]);
 
   const [recipe, setRecipe] = React.useState("");
 
